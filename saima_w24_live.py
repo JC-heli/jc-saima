@@ -240,7 +240,7 @@ def build_rows(stocks: dict, start: str, end: str, sel_week: int) -> list[dict]:
     return rows
 
 
-PASSWORD = "saima2026"
+PASSWORD = "bwsaima"
 
 
 def main():
