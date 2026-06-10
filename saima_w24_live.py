@@ -240,8 +240,22 @@ def build_rows(stocks: dict, start: str, end: str, sel_week: int) -> list[dict]:
     return rows
 
 
+PASSWORD = "saima2026"
+
+
 def main():
     st.set_page_config(page_title="賽馬歷史資料庫", page_icon="🐎", layout="wide")
+
+    if not st.session_state.get("auth"):
+        st.title("🐎 賽馬歷史資料庫")
+        pw = st.text_input("請輸入密碼", type="password")
+        if st.button("進入"):
+            if pw == PASSWORD:
+                st.session_state["auth"] = True
+                st.rerun()
+            else:
+                st.error("密碼錯誤")
+        st.stop()
 
     # 每 60 秒自動 reload
     components.html(
