@@ -316,7 +316,7 @@ def main():
     avg       = df["報酬率(%)"].mean()
     pos_count = int((df["報酬率(%)"] > 0).sum())
     twii_ret  = fetch_benchmark("^TWII", START, week_end)
-    etf_ret   = fetch_benchmark("00675L.TW", START, week_end)
+    etf_ret   = fetch_benchmark("00631L.TW", START, week_end)
 
     # ── Header metrics ──────────────────────────────────────
     c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
@@ -338,7 +338,7 @@ def main():
         )
     c6.metric("大盤",      f"{twii_ret:+.2f}%" if twii_ret is not None else "N/A",
               delta=f"{avg - twii_ret:+.2f}% vs 大盤" if twii_ret is not None else None)
-    c7.metric("00675L 正二", f"{etf_ret:+.2f}%" if etf_ret is not None else "N/A",
+    c7.metric("00631L 正二", f"{etf_ret:+.2f}%" if etf_ret is not None else "N/A",
               delta=f"{avg - etf_ret:+.2f}% vs 正二" if etf_ret is not None else None)
 
     st.divider()
@@ -434,7 +434,7 @@ function srt(col){{
         bench_vals.append(twii_ret)
         bench_colors.append("#A0A0A0")
     if etf_ret is not None:
-        bench_labels.append("▶ 00675L 正二")
+        bench_labels.append("▶ 00631L 正二")
         bench_vals.append(etf_ret)
         bench_colors.append("#F0A500")
 
